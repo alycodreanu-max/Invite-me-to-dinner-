@@ -1,5 +1,5 @@
 /* ===========================================================
-   INVITE ME TO DINNER — Design tokens
+   INVITE ME TO DINNER â€” Design tokens
    =========================================================== */
 :root{
   --void:        #0B0906;
@@ -54,7 +54,7 @@ button{ font-family: inherit; cursor:pointer; }
 }
 
 /* ===========================================================
-   Ambient texture — grain + drifting bokeh
+   Ambient texture â€” grain + drifting bokeh
    =========================================================== */
 .grain{
   position: fixed; inset:0; pointer-events:none; z-index: 500;
