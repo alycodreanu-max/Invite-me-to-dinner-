@@ -2,6 +2,18 @@
   "use strict";
 
   /* -----------------------------------------------------------
+     Cursor spotlight — the "alive" ambient light that follows you
+     everywhere on the page, not just inside the hero.
+  ----------------------------------------------------------- */
+  const root = document.documentElement;
+  if (matchMedia("(hover:hover)").matches){
+    window.addEventListener("pointermove", (e) => {
+      root.style.setProperty("--sx", e.clientX + "px");
+      root.style.setProperty("--sy", e.clientY + "px");
+    });
+  }
+
+  /* -----------------------------------------------------------
      Hero parallax — pointer-driven depth on the dinner image
   ----------------------------------------------------------- */
   const heroMedia = document.getElementById("heroMedia");
