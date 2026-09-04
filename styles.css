@@ -411,6 +411,7 @@ button{ font-family: inherit; cursor:pointer; }
   background: rgba(11,9,6,0.86); backdrop-filter: blur(6px);
   padding: 20px;
 }
+confirm[hidden]{ display: none; }
 .confirm__card{
   max-width: 440px; width:100%;
   background: var(--panel-2); border: 1px solid var(--line-strong); border-radius: var(--radius-md);
