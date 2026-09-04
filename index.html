@@ -8,12 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=3" />
+<!-- Three.js via CDN import map — no npm, no build step required -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
 </head>
 <body>
 
 <div class="grain"></div>
-<div class="bokeh" aria-hidden="true">
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+<div class="motes" aria-hidden="true">
   <span></span><span></span><span></span><span></span><span></span><span></span>
 </div>
 
@@ -32,10 +41,8 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero__media" id="heroMedia">
-      <img src="images/hero-dinner.jpg" alt="Andy and a guest across a candlelit dinner table at night" />
-      <div class="hero__vignette"></div>
-    </div>
+    <canvas id="restaurantScene" class="hero__scene" aria-hidden="true"></canvas>
+    <div class="hero__vignette"></div>
     <div class="hero__content">
       <p class="hero__kicker">London · By private reservation only</p>
       <h1 class="hero__title">
@@ -56,11 +63,18 @@
 
   <!-- INTRO STRIP -->
   <section class="intro">
-    <p>
-      Every relationship carries a pattern that repeats — the same fear, the same distance,
-      the same question asked in different words. <span class="intro__accent">Invite Me to Dinner</span>
-      exists to slow that pattern down, at a table, with someone trained to see it clearly.
-    </p>
+    <div class="intro__text">
+      <p>
+        Every relationship carries a pattern that repeats — the same fear, the same distance,
+        the same question asked in different words. <span class="intro__accent">Invite Me to Dinner</span>
+        exists to slow that pattern down, at a table, with someone trained to see it clearly.
+      </p>
+    </div>
+    <div class="intro__photo" id="introPhoto">
+      <img src="images/hero-dinner.jpg" alt="Andy and a guest across a candlelit dinner table at night" />
+      <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+      <span class="corner corner--bl"></span><span class="corner corner--br"></span>
+    </div>
   </section>
 
   <!-- ABOUT ANDY -->
@@ -68,6 +82,8 @@
     <div class="andy__portrait" id="andyPortrait">
       <img src="images/andy-portrait.jpg" alt="Portrait of Andy" />
       <div class="andy__portrait-frame"></div>
+      <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+      <span class="corner corner--bl"></span><span class="corner corner--br"></span>
     </div>
     <div class="andy__content">
       <p class="eyebrow">About Andy</p>
@@ -127,6 +143,8 @@
 
     <div class="offer-grid">
       <article class="offer offer--individual" data-offer="individual">
+        <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+        <span class="corner corner--bl"></span><span class="corner corner--br"></span>
         <div class="offer__head">
           <h3>Invite Me to Dinner</h3>
           <p class="offer__sub">Individual consultation</p>
@@ -142,6 +160,8 @@
       </article>
 
       <article class="offer offer--couple" data-offer="couple">
+        <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+        <span class="corner corner--bl"></span><span class="corner corner--br"></span>
         <div class="offer__head">
           <h3>Invite Us to Dinner</h3>
           <p class="offer__sub">Couples consultation</p>
@@ -179,6 +199,8 @@
     </div>
 
     <form class="book__panel" id="bookingForm" novalidate>
+      <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+      <span class="corner corner--bl"></span><span class="corner corner--br"></span>
 
       <div class="panel-row">
         <p class="panel-label">1. Choose your table</p>
@@ -282,5 +304,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script type="module" src="restaurant-scene.js"></script>
 </body>
 </html>
